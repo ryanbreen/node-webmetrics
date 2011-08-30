@@ -17,7 +17,27 @@ Tests use [vows](http://vowsjs.org) and can be run as `vows test/test_webmetrics
 
 ## Usage
 
-Each method call of the Webmetrics API expects your username and api key.  All optional parameters are passed in as a hash of name/value pairs which are composed into a query string.
+This library exposes the Webmetrics API as defined in the [May 18, 2011 API document](http://help.webmetrics.com/help/attachments/7012446/23560559.pdf).  The API is divided into 5 categories: maintenance, logdownload, processeddata, realtime, and snapshot.  If you want to call the `mainteance.getServices` method, you would do something like this:
+
+    var util = require('util');
+    var webmetrics = require('webmetrics');
+    
+    webmetrics.maintenance.getServiceType('myusername@mydomain.com', 'not_a_great_api_key', { 'serviceid' : 1233523 }, function(err, services) {
+       util.puts(util.inspect(services));
+    });
+
+Each method call of the Webmetrics API expects your username and api key.  All parameters are passed in as a hash of name/value pairs which are composed into a query string.  If a parameter is required by the Webmetrics API but is not present in your options object, the callback will be fired with an error message explaining which parameter was missing.
+
+If you would prefer to make unassisted API calls, for example if new API methods have been introduced that are not yet supported out of the box by this API, you can call the `webmetrics.sendMessage` method: `webmetrics.sendMessage(username, api_key, api, method, query, callback)`.  The getServiceType call in the above example would look like this if the raw `sendMessage` call was used:
+
+    var util = require('util');
+    var webmetrics = require('webmetrics');
+    
+    webmetrics.sendMessage('myusername@mydomain.com', 'not_a_great_api_key', 'maintenance.getServiceType', 'GET', { 'serviceid' : 1233523 }, function(err, services) {
+       util.puts(util.inspect(services));
+    });
+
+Note that no parameter checking occurs if you use `webmetrics.sendMessage`.
 
 ## Author
 
