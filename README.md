@@ -28,7 +28,7 @@ This library exposes the Webmetrics API as defined in the [May 18, 2011 API docu
 
 Each method call of the Webmetrics API expects your username and api key.  All parameters are passed in as a hash of name/value pairs which are composed into a query string.  If a parameter is required by the Webmetrics API but is not present in your options object, the callback will be fired with an error message explaining which parameter was missing.
 
-If you would prefer to make unassisted API calls, for example if new API methods have been introduced that are not yet supported out of the box by this API, you can call the `webmetrics.sendMessage` method: `webmetrics.sendMessage(username, api_key, api, method, query, callback)`.  The getServiceType call in the above example would look like this if the raw `sendMessage` call was used:
+If you would prefer to make unassisted API calls, for example if new API methods have been introduced that are not yet supported out of the box by this library, you can call the `webmetrics.sendMessage` method: `webmetrics.sendMessage(username, api_key, api, method, query, callback)`.  The getServiceType call in the above example would look like this if the raw `sendMessage` call was used:
 
     var util = require('util');
     var webmetrics = require('webmetrics');
