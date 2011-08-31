@@ -1,6 +1,6 @@
 {
   "name": "webmetrics",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./lib/webmetrics.js",
   "description": "Webmetrics JSON API library",
   "author": "Ryan Breen <ryan@ryanbreen.com>",
