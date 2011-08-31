@@ -1,13 +1,10 @@
 {
   "name": "webmetrics",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "main": "./lib/webmetrics.js",
   "description": "Webmetrics JSON API library",
   "author": "Ryan Breen <ryan@ryanbreen.com>",
   "directories": {"lib": "./lib", "test": "./test"},
-  "modules": { 
-    "webmetrics": "./lib/webmetrics.js"
-  },
   "dependencies": {
     "log4js": ">=0.2.3",
     "sprintf": ">=0.1.1",
