@@ -77,7 +77,7 @@ vows.describe('Webmetrics API').addBatch({
 				topic: function(err, getServicesResponse) {
 					var parent = this;
 					webmetrics.maintenance.getServiceType(creds.username, creds.api_key,
-						{'serviceid' : getServicesResponse.service[0].id[0]}, function(err, response) {
+						{ 'serviceid' : getServicesResponse.service[0].id[0] }, function(err, response) {
 						parent.callback(getServicesResponse, response);
 					});
 				},
